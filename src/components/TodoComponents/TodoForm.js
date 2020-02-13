@@ -1,4 +1,5 @@
 import React from "react";
+import App from "../../App";
 
 class ToDoForm extends React.Component {
   constructor() {
@@ -14,16 +15,15 @@ class ToDoForm extends React.Component {
 
   submitTask = event => {
     event.preventDefault();
-    this.props.addTask(event, this.state.task);
+    this.props.addTodo(event, this.state.task);
   };
 
   render() {
     return (
-      <form onSubmit={this.submitTask}>
+      <form onSubmit={this.state.submitTask}>
         <label>
-          <input type="text" name="task" onChange={this.handleChanges}>
-            <button>Add </button>
-          </input>
+          <input type="text" name="task" onChange={this.handleChanges}></input>
+          <button>Add </button>
         </label>
       </form>
     );

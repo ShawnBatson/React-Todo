@@ -1,5 +1,6 @@
 import React from "react";
 import ToDoList from "./components/TodoComponents/TodoList";
+import ToDoForm from "./components/TodoComponents/TodoForm";
 import styled from "styled-components";
 import ToDo from "./components/TodoComponents/Todo";
 
@@ -19,20 +20,20 @@ const ToDoItems = [
 class App extends React.Component {
   constructor() {
     super();
-    this.state = { ToDo };
+    this.state = { ToDoItems };
   }
 
   addTodo = (event, task) => {
     event.preventDefault();
 
     const newToDo = {
-      task: task,
+      name: task,
       id: Date.now(),
       completed: false
     };
 
     this.setState({
-      ToDoItems: [...ToDoItems, newToDo]
+      ToDoItems: [...this.state.ToDoItems, newToDo]
     });
   };
 
@@ -40,7 +41,7 @@ class App extends React.Component {
     console.log(toDoId);
 
     this.setState({
-      ToDoItems: this.state.ToDoItems.map(task => {
+      ToDoItem: this.state.ToDoItems.map(task => {
         if (toDoId === task.id) {
           return {
             ...task,
@@ -66,8 +67,12 @@ class App extends React.Component {
           <h2>Welcome to your Todo App!</h2>
         </div>
         <div>
-          {" "}
-          <ToDoList addToDo={this.state.ToDo} />
+          <ToDoForm addTodo={this.addTodo} />
+          <ToDoList
+            ToDoItems={this.state.ToDoItems}
+            toggleTask={this.toggleTask}
+            clearTask={this.clearTask}
+          />
         </div>
         <div className="formInputs"></div>
       </div>
