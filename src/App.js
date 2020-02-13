@@ -35,10 +35,29 @@ class App extends React.Component {
     });
   };
 
+  toggleItem = toDoId => {
+    console.log(toDoId);
+
+    this.setState({
+      ToDoItems: this.state.ToDoItems.map(task => {
+        if (toDoId === task.id) {
+          return {
+            ...task,
+            completed: !task.completed
+          };
+        }
+        return task;
+      })
+    });
+  };
+
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
+      <div className="App">
+        <div className="Header">
+          <h2>Welcome to your Todo App!</h2>
+        </div>
+        <div className="formInputs"></div>
       </div>
     );
   }
