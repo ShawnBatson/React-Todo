@@ -20,10 +20,10 @@ class ToDoForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.state.submitTask}>
+      <form onSubmit={this.submitTask}>
         <label>
           <input type="text" name="task" onChange={this.handleChanges}></input>
-          <button>Add </button>
+          <button>Add</button>
         </label>
       </form>
     );
