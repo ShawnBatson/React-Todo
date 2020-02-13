@@ -1,4 +1,5 @@
 import React from "react";
+import ToDoList from "./components/TodoComponents/TodoList";
 import styled from "styled-components";
 import ToDo from "./components/TodoComponents/Todo";
 
@@ -35,7 +36,7 @@ class App extends React.Component {
     });
   };
 
-  toggleItem = toDoId => {
+  toggleTask = toDoId => {
     console.log(toDoId);
 
     this.setState({
@@ -48,6 +49,13 @@ class App extends React.Component {
         }
         return task;
       })
+    });
+  };
+
+  clearTask = event => {
+    event.preventDefault();
+    this.setState({
+      ToDoItems: this.state.ToDoItems.filter(task => task.completed === false)
     });
   };
 
