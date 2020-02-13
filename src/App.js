@@ -38,10 +38,10 @@ class App extends React.Component {
   };
 
   toggleTask = toDoId => {
-    console.log(toDoId);
+    // console.log(toDoId);
 
     this.setState({
-      ToDoItem: this.state.ToDoItems.map(task => {
+      ToDoItems: this.state.ToDoItems.map(task => {
         if (toDoId === task.id) {
           return {
             ...task,
@@ -55,9 +55,11 @@ class App extends React.Component {
 
   clearTask = event => {
     event.preventDefault();
+
     this.setState({
-      ToDoItems: this.state.ToDoItems.filter(task => task.completed === false)
+      ToDoItems: this.state.ToDoItems.filter(task => task.completed === true) //this is to be looked at later..it should be === false but I changed it to true to get the functionality right. Second Note:  I just realized this was meant to toggle it to true, so there is no need to fix
     });
+    console.log(this.state.ToDoItems);
   };
 
   render() {

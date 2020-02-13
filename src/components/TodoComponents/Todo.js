@@ -1,7 +1,7 @@
 import React from "react";
 
 const ToDo = props => {
-  console.log(props);
+  //   console.log(props);
 
   return (
     <div onClick={() => props.toggleTask(props.task.id)}>
