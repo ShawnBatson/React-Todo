@@ -24,13 +24,18 @@ const Header = styled.header`
 
 const ToDoAll = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 50%;
-  border: 1px solid blue;
+  border-radius: 10px;
   justify-content: center;
   align-items: center;
   margin: 1%;
   padding: 2%;
+  font-weight: bold;
+`;
+
+const H2 = styled.h2`
+  color: white;
 `;
 
 ////////////////////////////////////
@@ -96,13 +101,14 @@ class App extends React.Component {
     return (
       <MainDiv className="App">
         <Header className="Header">
-          <h2>Welcome to your Todo App!</h2>
+          <H2>Welcome to your Todo App!</H2>
         </Header>
         <div className="formInputs">
           <ToDoForm addTodo={this.addTodo} />
         </div>
         <ToDoAll>
           <ToDoList
+            className="toDoList"
             clearTask={this.clearTask}
             ToDoItems={this.state.ToDoItems}
             toggleTask={this.toggleTask}

@@ -9,7 +9,7 @@ const ToDoList = props => {
           <ToDo id={task.id} task={task} toggleTask={props.toggleTask} />
         ))}
         <button className="clear" onClick={props.clearTask}>
-          Clear Task
+          Clear Completed Tasks
         </button>
       </div>
     </>

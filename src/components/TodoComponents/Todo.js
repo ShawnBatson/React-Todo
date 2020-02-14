@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import "../../components/TodoComponents/Todo.css";
 
 const ToDo = props => {
   //   console.log(props);
 
   return (
     <div
-      className={`ToDoItems${props.task.completed ? " completed" : ""}`}
+      className={`item${props.task.completed ? " completed" : ""}`}
       onClick={() => props.toggleTask(props.task.id)}
     >
       <p>{props.task.name}</p>
