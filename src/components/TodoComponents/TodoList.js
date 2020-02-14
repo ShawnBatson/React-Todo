@@ -1,5 +1,12 @@
 import React from "react";
 import ToDo from "./Todo";
+import styled from "styled-components";
+
+const Button = styled.button`
+  background-color: white;
+  color: red;
+  border-radius: 5px;
+`;
 
 const ToDoList = props => {
   return (
@@ -8,9 +15,9 @@ const ToDoList = props => {
         {props.ToDoItems.map(task => (
           <ToDo id={task.id} task={task} toggleTask={props.toggleTask} />
         ))}
-        <button className="clear" onClick={props.clearTask}>
+        <Button className="clear" onClick={props.clearTask}>
           Clear Completed Tasks
-        </button>
+        </Button>
       </div>
     </>
   );
