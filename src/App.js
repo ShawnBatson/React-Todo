@@ -4,6 +4,36 @@ import ToDoForm from "./components/TodoComponents/TodoForm";
 import styled from "styled-components";
 import ToDo from "./components/TodoComponents/Todo";
 
+const MainDiv = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  background: ;
+  border: 1px solid black;
+`;
+
+const Header = styled.header`
+  display: flex;
+  width: 25%;
+  justify-content: center;
+  margin: 1%;
+`;
+
+const ToDoAll = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  border: 1px solid blue;
+  justify-content: center;
+  align-items: center;
+  margin: 1%;
+  padding: 2%;
+`;
+
+////////////////////////////////////
 const ToDoItems = [
   {
     task: "Organize Garage",
@@ -57,28 +87,28 @@ class App extends React.Component {
     event.preventDefault();
 
     this.setState({
-      ToDoItems: this.state.ToDoItems.filter(task => task.completed === true) //this is to be looked at later..it should be === false but I changed it to true to get the functionality right. Second Note:  I just realized this was meant to toggle it to true, so there is no need to fix
+      ToDoItems: this.state.ToDoItems.filter(task => task.completed === false) //this is to be looked at later..it should be === false but I changed it to true to get the functionality right. Second Note:  I just realized this was meant to toggle it to true, so there is no need to fix
     });
     console.log(this.state.ToDoItems);
   };
 
   render() {
     return (
-      <div className="App">
-        <div className="Header">
+      <MainDiv className="App">
+        <Header className="Header">
           <h2>Welcome to your Todo App!</h2>
-        </div>
+        </Header>
         <div className="formInputs">
           <ToDoForm addTodo={this.addTodo} />
         </div>
-        <div>
+        <ToDoAll>
           <ToDoList
+            clearTask={this.clearTask}
             ToDoItems={this.state.ToDoItems}
             toggleTask={this.toggleTask}
-            clearTask={this.clearTask}
           />
-        </div>
-      </div>
+        </ToDoAll>
+      </MainDiv>
     );
   }
 }

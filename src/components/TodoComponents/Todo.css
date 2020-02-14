@@ -1,0 +1,8 @@
+#root {
+  background: black;
+}
+
+.ToDoItems.true {
+  background-color: black;
+  text-decoration: line-through;
+}
